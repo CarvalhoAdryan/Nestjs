@@ -12,12 +12,10 @@ datasource db {
   provider = "postgresql"
 }
 
-model Pedido {
-  id        Int      @id @default(autoincrement())
-  nome      String
-  endereco  String
-  telefone  String
-  info      String?
-  status    String   @default("PENDENTE")
-  createdAt DateTime @default(now())
+model Produto {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  preco      Decimal  @db.Decimal(19, 2)
+  quantidade Int
+  createdAt  DateTime @default(now())
 }
