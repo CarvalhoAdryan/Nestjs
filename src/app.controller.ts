@@ -12,7 +12,7 @@ export class AppController {
   }
 
   @Post('produtos')
-  async criarProduto(@Body() body) {
+  async criarProduto(@Body() body: criarProdutoDto) {
     return this.appService.criarProduto(body);
   }
 }

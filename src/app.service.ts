@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma/prisma.service';
+import { criarProdutoDto } from './dto/criar-produto.dto';
 
 @Injectable()
 export class AppService {
@@ -9,13 +10,9 @@ export class AppService {
     return 'Adryan Lindo';
   }
 
-  async criarProduto(data){
+  async criarProduto(data: criarProdutoDto) {
     return this.prisma.produto.create({
-      data: {
-        nome: data.nome,
-        preco: data.preco,
-        quantidade: data.quantidade
-      }
-    })
+      data,
+    });
   }
 }
