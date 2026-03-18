@@ -6,3 +6,18 @@ Content-Type: application/json
     "preco": 1,
     "quantidade": 8
 }
+
+###
+
+PUT http://localhost:3000/produtos/1
+Content-Type: application/json
+
+{
+    "nome": "Feijão Preto",
+    "preco": 1,
+    "quantidade": 8
+}
+
+###
+
+GET http://localhost:3000/produtos
