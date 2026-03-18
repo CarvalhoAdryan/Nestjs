@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put, Param } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param, Patch } from '@nestjs/common';
 import { AppService } from './app.service';
 import { criarProdutoDto } from './dto/criar-produto.dto';
 import { atualizarProdutoDto } from './dto/atualiza-produto.dto';
@@ -19,6 +19,14 @@ export class AppController {
 
   @Put('produtos/:id')
   async atualizarProduto(
+    @Param('id') id: string,
+    @Body() body: atualizarProdutoDto,
+  ) {
+    return this.appService.atualizarProduto(Number(id), body);
+  }
+
+  @Patch('produtos/:id')
+  async atualizarParcial(
     @Param('id') id: string,
     @Body() body: atualizarProdutoDto,
   ) {

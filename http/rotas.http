@@ -21,3 +21,12 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3000/produtos
+
+###
+
+PATCH http://localhost:3000/produtos/1
+Content-Type: application/json
+
+{
+    "quantidade": 50
+}
