@@ -32,4 +32,20 @@ export class AppController {
   ) {
     return this.appService.atualizarProduto(Number(id), body);
   }
+
+  @Patch('produtos/:id/venda')
+  async venderProduto(
+    @Param('id') id: string,
+    @Body() body: { valor: number },
+  ) {
+    return this.appService.venderProduto(Number(id), body.valor);
+  }
+
+  @Patch('produtos/:id/compra')
+  async comprarProduto(
+    @Param('id') id: string,
+    @Body() body: { valor: number },
+  ) {
+    return this.appService.comprarProduto(Number(id), body.valor);
+  }
 }

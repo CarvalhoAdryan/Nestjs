@@ -27,4 +27,22 @@ export class AppService {
   async mostrarProdutos() {
     return this.prisma.produto.findMany();
   }
+
+  async comprarProduto(id: number, valor: number) {
+    return this.prisma.produto.update({
+      where: { id },
+      data: {
+        quantidade: { increment: valor },
+      },
+    });
+  }
+
+  async venderProduto(id: number, valor: number) {
+    return this.prisma.produto.update({
+      where: { id },
+      data: {
+        quantidade: { decrement: valor },
+      },
+    });
+  }
 }

@@ -30,3 +30,21 @@ Content-Type: application/json
 {
     "quantidade": 50
 }
+
+###
+
+PATCH http://localhost:3000/produtos/1/compra
+Content-Type: application/json
+
+{
+    "valor": 5
+}
+
+###
+
+PATCH http://localhost:3000/produtos/1/venda
+Content-Type: application/json
+
+{
+    "valor": 5
+}
