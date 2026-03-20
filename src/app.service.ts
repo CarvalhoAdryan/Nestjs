@@ -38,6 +38,14 @@ export class AppService {
   }
 
   async venderProduto(id: number, valor: number) {
+    const produto = await this.prisma.produto.findUnique({
+      where: { id },
+    });
+
+    if (!produto || produto.quantidade < valor) {
+      throw new Error('Quantidade insuficiente');
+    }
+
     return this.prisma.produto.update({
       where: { id },
       data: {

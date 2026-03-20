@@ -33,7 +33,7 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3000/produtos/1/compra
+PATCH http://localhost:3000/produtos/4/compra
 Content-Type: application/json
 
 {
@@ -42,9 +42,9 @@ Content-Type: application/json
 
 ###
 
-PATCH http://localhost:3000/produtos/1/venda
+PATCH http://localhost:3000/produtos/4/venda
 Content-Type: application/json
 
 {
-    "valor": 5
+    "valor": 3
 }
