@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Put, Param, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Post, Put, Param, Patch, Delete } from '@nestjs/common';
 import { AppService } from './app.service';
 import { criarProdutoDto } from './dto/criar-produto.dto';
 import { atualizarProdutoDto } from './dto/atualiza-produto.dto';
@@ -10,6 +10,11 @@ export class AppController {
   @Get('produtos')
   getHello() {
     return this.appService.mostrarProdutos();
+  }
+
+  @Get('produtos/:id')
+  mostrarProduto(@Param('id') id: string) {
+    return this.appService.mostrarProduto(Number(id));
   }
 
   @Post('produtos')
@@ -39,6 +44,11 @@ export class AppController {
     @Body() body: { valor: number },
   ) {
     return this.appService.venderProduto(Number(id), body.valor);
+  }
+
+  @Delete('produtos/:id')
+  async deleteProduto(@Param('id') id: string) {
+    return this.appService.deleteProduto(Number(id));
   }
 
   @Patch('produtos/:id/compra')

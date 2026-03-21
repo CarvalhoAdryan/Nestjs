@@ -48,3 +48,10 @@ Content-Type: application/json
 {
     "valor": 3
 }
+
+###
+
+GET http://localhost:3000/produtos/1
+
+### 
+DELETE http://localhost:3000/produtos/1

@@ -28,6 +28,18 @@ export class AppService {
     return this.prisma.produto.findMany();
   }
 
+  async mostrarProduto(id: number) {
+    return this.prisma.produto.findUnique({
+      where: { id },
+    });
+  }
+
+  async deleteProduto(id: number) {
+    return this.prisma.produto.delete({
+      where: { id },
+    });
+  }
+
   async comprarProduto(id: number, valor: number) {
     return this.prisma.produto.update({
       where: { id },
